@@ -2,7 +2,7 @@
   box-sizing:border-box;
 }
 body {
-  background:#ff5e56;
+  background:midnightblue;
   font-family:"Raleway";
 }
 .tabs {
@@ -62,6 +62,7 @@ body {
 }
 .tabs .tab-content > div {
   position:absolute;
+  text-align:center;
   padding:40px 20px;
   top:-200%;
   transition:all 500ms ease-in-out;
@@ -81,7 +82,7 @@ body {
 }
 
 .flex-container{
-    max-width: fit-content;
+    width: 42%;
     min-height: 100px;
     margin: 0 auto;
     display: -webkit-flex; /* Safari */
@@ -106,6 +107,5 @@ body {
   margin: 0 auto;
 }
 .yes{margin: auto;
-left: 10%;
-right: 10%;
+position: absolute;
 }
