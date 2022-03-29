@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Profile card</title>
+ <style>
+*{
+box-sizing: border-box;
+}
+body{
+background:#f1f1f1;
+}
+.card-container{
+text-align:center;
+width: 550px;
+margin-top: 10%;
+margin-left: 30%;
+margin-right: 30%;
+height: 500px;
+background: #FFF;
+background-radius: 6px;
+padding: 50px 50px 50px 50px;
+box-shadow: 1px 1px 10px #000;
+}
+.upper-container{
+height:100px;
+margin: auto;
+background:#f20d6e;
+}
+
+.lower-container{
+margin-top: 10px;
+height:300px;
+background:#3366FF;}
+.pd{
+    float: left;
+    width: 50%;
+    text-align: left;
+    margin: auto;
+    padding: 1px 10px 10px 10px;
+}
+.ed{
+    float: right;
+    width: 47%;
+    text-align: left;
+    margin: auto;
+    padding: 1px 10px 10px 10px;
+}
+.vl {
+  border-left: 3px solid black;
+  height: 300px;
+    position: absolute;
+  left: 48%;
+  margin-right: -5px;
+    margin-top: 19.5%;
+  top: 0;
+}
+
+</style>
+</head>
+
+<body>
+
+ <div class="card-container">
+ <div class="upper-container">
+<h2>Vishwakarma Institute of Informtion Technology</h2>
+<div class ="lower-container">
+    <div class="pd">
+    <h3> Personal Details </h3>
+    <p>Name :      {{list[0] + " " + list[1]}}</p>
+    <p>GR NO. :    {{list[8]}}</p>
+    <p>Class :     {{list[3]}}</p>
+    <p>Branch :    {{list[2]}}</p>
+    <p>Mail ID :   {{list[9]}}</p>
+    <p>DOB :      {{list[7]}}</p>
+    </div>
+    <div class="vl"></div>
+    <div class="ed">
+    <h3> Education Details </h3>
+    <p>current CGPA : {{list[4]}}</p>
+    <p>Dead backlogs : {{list[5]}}</p>
+    <p>Live backlogs : {{list[6]}}</p>
+    </div>
+
+</div>
+</div>
+</div>
+</body>
+</html>

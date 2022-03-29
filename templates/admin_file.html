@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<style>
+        * {
+  box-sizing:border-box;
+}
+body {
+  background:#ddd;
+  font-family:"Raleway";
+}
+.tabs {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:1000px;
+  height:720px;
+  padding:30px 20px;
+  background:#f5f5f5;
+  box-shadow:5px 5px 10px 5px #ccc;
+  overflow:hidden;
+}
+.tabs .tab-header {
+  float:left;
+  width:180px;
+  height:100%;
+  border-right:1px solid #ccc;
+  padding:50px 0px;
+}
+.tabs .tab-header > div {
+  height:50px;
+  line-height:50px;
+  font-size:16px;
+  font-weight:600;
+  color:#888;
+  cursor:pointer;
+  padding-left:10px;
+}
+.tabs .tab-header > div:hover,
+.tabs .tab-header > div.active {
+  color:#00acee;
+}
+.tabs .tab-header div i {
+  display:inline-block;
+  margin-left:10px;
+  margin-right:5px;
+}
+.tabs .tab-content {
+  position:relative;
+  height:100%;
+  overflow:hidden;
+}
+.tabs .tab-content > div > i {
+  display:inline-block;
+  width:50px;
+  height:50px;
+  background:#555;
+  color:#f5f5f5;
+  font-size:25px;
+  font-weight:600;
+  text-align:center;
+  line-height:50px;
+  border-radius:50%;
+}
+.tabs .tab-content > div {
+  position:absolute;
+  text-align:center;
+  padding:40px 20px;
+  top:-200%;
+  transition:all 500ms ease-in-out;
+}
+.tabs .tab-content > div.active {
+  top:0px;
+}
+
+.tabs .tab-indicator {
+  position:absolute;
+  width:4px;
+  height:50px;
+  background:#00acee;
+  left:198px;
+  top:80px;
+  transition:all 500ms ease-in-out;
+}
+
+
+	</style>
+    <title>My Page</title>
+    <link rel="stylesheet" href="../static/new.css">
+</head>
+
+<body>
+
+	<div class="tabs">
+  <div class="tab-header">
+
+    <div class="active">
+      &nbsp;&nbsp; Report
+    </div>
+    <div>
+      &nbsp;&nbsp; Search
+    </div>
+    <div>
+      &nbsp;&nbsp; Contact
+    </div>
+  </div>
+  <div class="tab-indicator"></div>
+  <div class="tab-content">
+
+    <div class="active">
+
+        <img src="vit-logo.png" style="alignment: center">
+      <h3 style="text-align: center">Attendance Report: </h3><hr><br>
+
+        <form action="/predict" method="post">
+        <button type="submit" value="get event" class="btn-large waves-effect waves-light orange">get event
+        </button>
+
+        </form>
+
+        <br>
+        {{ pred }}
+        <br>
+        <br>
+        <form action="/report" method="post">
+
+            <label>Branch:</label>
+            <select name="branch" required>
+                <option value="civil" > Civil </option>
+                <option value="comp" > Computer </option>
+                <option value="Entc" > E&TC </option>
+                <option value="IT" > IT </option>
+	            <option value="Mech"> Mechanical </option>
+            </select><br><br>
+
+
+            <label> Event : </label> &nbsp;
+            <input type="search" name="event" placeholder="Event name"><br><br>
+
+            <label>Year:</label>
+            <select name="year" required>
+                <option value="FY Btech" > FY Btech </option>
+                <option value="SY Btech" > SY Btech </option>
+                <option value="TY Btech" > TY Btech </option>
+                <option value="Btech" > Btech </option>
+            </select><br><br>
+
+            <label> Start Date : </label> &nbsp;
+            <input type="date" name="start" ><br><br>
+            <label> End Date : </label> &nbsp;
+            <input type="date" name="end" ><br><br>
+
+        <button name="attend" type="submit">Attendance Report</button>
+
+        </form>
+
+        <br>
+          <form>
+        <input type="button" onclick="window.location.href='https://www.pythonanywhere.com/user/piyushpatni/files/home/piyushpatni/output.xlsx';" value="download" />
+
+        </form>
+
+    </div>
+
+      <div style="alignment: center" >
+
+        <i class="fa fa-bar-chart"></i>
+      <form action="/data/" method="post">
+
+            <h3 style="text-align: center">Search Here : </h3>
+        <hr><br>
+
+
+            <label> Branch : </label>
+
+                <input type="checkbox" name="civil" value="civil">
+                <label for="civil"> civil</label> &nbsp;
+                <input type="checkbox" name="comp" value="comp">
+                <label for="comp"> comp</label> &nbsp;
+                <input type="checkbox" name="Entc" value="Entc">
+                <label for="Entc"> Entc</label> &nbsp;
+                <input type="checkbox" name="IT" value="IT">
+                <label for="IT"> IT</label> &nbsp;
+                <input type="checkbox" name="Mech" value="Mech">
+                <label for="Mech"> Mech</label><br><br>
+
+          <label>Year:</label>
+            <select name="year" required>
+                <option value="FY Btech" > FY Btech </option>
+                <option value="SY Btech" > SY Btech </option>
+                <option value="TY Btech" > TY Btech </option>
+                <option value="Btech" > Btech </option>
+            </select><br><br>
+
+            <button name="database" type="submit">Search</button>
+        </form>
+
+    </div>
+
+    <div>
+      <i class="fa fa-envelope"></i>
+      <h2>This is contact section</h2>
+      <p> Training and Placement Cell VIIT
+
+The placement cell of VIIT strives to get its students placed in the best of companies, that can help you explore your potential.<br>
+
+tpo@viit.ac.in<br>
+
+Vishwakarma Institute of Information Technology, kondhawa budruk , Pune</p>
+    </div>
+    </div>
+
+  </div>
+</div>
+
+	<script>
+		function _class(name1){
+            return document.getElementsByClassName(name1);
+            }
+
+        let tabPanes = _class("tab-header")[0].getElementsByTagName("div");
+
+        for(let i=0;i<tabPanes.length;i++){
+        tabPanes[i].addEventListener("click",function(){
+            _class("tab-header")[0].getElementsByClassName("active")[0].classList.remove("active");
+            tabPanes[i].classList.add("active");
+
+            _class("tab-indicator")[0].style.top = `calc(80px + ${i*50}px)`;
+
+            _class("tab-content")[0].getElementsByClassName("active")[0].classList.remove("active");
+            _class("tab-content")[0].getElementsByTagName("div")[i].classList.add("active");
+
+            });
+            }
+	</script>
+
+</body>
+</html>

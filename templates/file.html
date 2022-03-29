@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<style>
+
+	</style>
+    <title>My Page</title>
+    <link rel="stylesheet" href="../static/new.css">
+</head>
+
+<div class="yes">
+<div>
+<div class="flex-container">
+        <div class="column">
+
+          <img src="https://sccnhub.com/media/com_easysocial/photos/49/66/17a2bcc53433ece71646d488ea49b8f8_thumbnail.png" alt="viit-logo" style="width:95px;height:95px;">
+
+        </div>
+
+
+        <div class="column bg-alt">
+          <a class="navbar-brand"  title="Vishwakarma Institute Of Information Technology">
+            Bansilal Ramnath Agarwal Charitable Trust's<br> <b>Vishwakarma Institute Of Information Technology</b> <span id="taglineId" class="tagline">(An Autonomous Institute affiliated to Savitribai Phule Pune University)<br> <span id="taglineId-red" class="tagline-red">An ISO 9001-2015 Certified Institute Accredited with 'A' Grade By NAAC</span></span>
+
+            </span><br>
+			          </a>
+        <a href="http://www.viit.ac.in/">Vishwakarma Institute Of Information Technology
+          </a>
+
+        </div>
+    </div>
+</div>
+    <hr>
+<div>
+	<div class="tabs">
+  <div class="tab-header">
+
+    <div class="active">
+      &nbsp;&nbsp; My Profile
+    </div>
+    <div>
+      &nbsp;&nbsp; Advertise
+    </div>
+    <div>
+      &nbsp;&nbsp; Contact
+    </div>
+  </div>
+  <div class="tab-indicator"></div>
+  <div class="tab-content">
+
+
+    <div style="alignment: center" class="active">
+        <img src="vit-logo.png">
+      <h3 style="text-align: center">My Profile : </h3><hr><br>
+        <form action="/profile" method="post">
+        <button name="profile" type="submit">Get Profile</button>
+
+        </form>
+    </div>
+
+      <div>
+      <img src="vit-logo.png" style="alignment: center">
+      <h3 style="text-align: center">Attendance : </h3><hr><br>
+        <form action="/scan" method="post">
+        <button name="attend" type="submit">Attendance </button>
+
+        </form>
+    </div>
+
+    <div>
+      <i class="fa fa-envelope"></i>
+      <h2>This is contact section</h2>
+      <p> Training and Placement Cell VIIT
+
+The placement cell of VIIT strives to get its students placed in the best of companies, that can help you explore your potential.<br>
+
+tpo@viit.ac.in<br>
+
+Vishwakarma Institute of Information Technology, kondhawa budruk , Pune</p>
+    </div>
+
+  </div>
+</div>
+</div>
+</div>
+
+	<script>
+		function _class(name1){
+            return document.getElementsByClassName(name1);
+            }
+
+        let tabPanes = _class("tab-header")[0].getElementsByTagName("div");
+
+        for(let i=0;i<tabPanes.length;i++){
+        tabPanes[i].addEventListener("click",function(){
+            _class("tab-header")[0].getElementsByClassName("active")[0].classList.remove("active");
+            tabPanes[i].classList.add("active");
+
+            _class("tab-indicator")[0].style.top = `calc(80px + ${i*50}px)`;
+
+            _class("tab-content")[0].getElementsByClassName("active")[0].classList.remove("active");
+            _class("tab-content")[0].getElementsByTagName("div")[i].classList.add("active");
+
+            });
+            }
+	</script>
+
+</body>
+</html>

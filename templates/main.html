@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+    <style>
+        a{
+            margin-left: 80%;
+            font-size: 18pt;
+        }
+        body{
+            margin: auto;
+            text-align: center;
+            background: #555555;
+        }
+        #head{
+                margin-left: 30%;
+                margin-right: 30%;
+        }
+        #image{
+            border: solid 3px;
+            margin-right: 20%;
+            margin-left: 20%;
+            padding: 5px;
+
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <a href="file.html"><b>Registration<b></a>
+    </header>
+    <div style="background: aqua" id="head">
+    <h1> <strong>Placement 2020 </strong></h1>
+    </div>
+
+        <hr>
+    <div id="image">
+        <button onclick="left()"> < </button>
+        <img height="300px" width="800px" src="trolley.jpg" onclick="load()" id="imgBanner"></img>
+        <button onclick="right()"> > </button>
+    </div>
+    <script>
+        function load() {
+            var w = window.open("file.html");
+            return w;
+        }
+        var picPaths = ['../templates/zs.jpg','../templates/avaya.png','infosys.jpg','tcs.jpg'];
+        // An index to track the contender image
+        var imageIndex = 0;
+        var bannerImage;
+
+        // An event callback for starting the interval
+        function startInterval() {
+        setInterval(displayNextImage, 10000);
+        }
+
+        function displayNextImage() {
+        bannerImage.src = picPaths[imageIndex];
+        if(imageIndex === (picPaths.length-1)) {
+            imageIndex = 0;
+        }
+        else {
+            imageIndex = imageIndex + 1; // It can be replaced with imageIndex ++
+        }
+            }
+
+        window.onload=function() {
+        bannerImage = document.getElementById('imgBanner');
+        startInterval();
+        }
+
+</body>
+</html>

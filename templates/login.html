@@ -1,1 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<style>
 
+	</style>
+    <title>My Page</title>
+    <link rel="stylesheet" href="../static/log.css">
+</head>
+
+<body>
+
+	<div class="tabs">
+  <div class="tab-header">
+
+    <div class="active">
+      &nbsp;&nbsp; Login
+    </div>
+    <div>
+      &nbsp;&nbsp; Register
+    </div>
+    <div>
+      &nbsp;&nbsp; Contact
+    </div>
+  </div>
+  <div class="tab-indicator"></div>
+  <div class="tab-content">
+
+
+    <div style="alignment: center" class="active">
+        <img src="C://Users//Lenovo//Documents//vit-logo.png">
+      <h3 style="text-align: center">Login Here : </h3><hr><br>
+        <form action="/login" method="POST">
+
+            <label>Profession :</label>
+            <select name="pr" required>
+                <option value="stud" > Student </option>
+                <option value="admin" > Administrator </option>
+
+            </select><br><br>
+
+        <label>Username :</label>
+            <input type="text" name="uname"><br><br>
+        <label>Password :</label>
+            <input type="password" name="upwd"><br><br>
+
+            <input type="reset"></input> &nbsp
+            <button>Login</button> &nbsp
+
+        </form>
+<br><br>
+    {% with messages = get_flashed_messages() %}
+         {% if messages %}
+               {% for message in messages %}
+                    <p>{{ message }}</p>
+               {% endfor %}
+         {% endif %}
+      {% endwith %}
+
+    </div>
+
+    <div>
+        <img src="vit-logo.png">
+        <h3 style="text-align: center">Register Here : </h3><hr><br>
+
+      <form action="/add" method="POST">
+
+          <label>First Name &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:</label>
+            <input type="text" name="fname"><br><br>
+            <label>Last Name &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:</label>
+            <input type="text" name="lname"><br><br>
+
+            <label>Department  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:</label>
+            <select name="branch" required>
+                <option value="comp" > Computer </option>
+                <option value="Entc" > E&TC </option>
+                <option value="IT" > IT </option>
+                <option value="Mech" > Mechanical </option>
+	        <option value="civil">  Civil</option>
+            </select><br><br>
+
+            <label>Class &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:</label>
+            <select name="year" required>
+                <option value="FY Btech" > FY Btech </option>
+                <option value="SY Btech" > SY Btech </option>
+                <option value="TY Btech" > TY Btech </option>
+                <option value="Btech" > Btech </option>
+            </select><br><br>
+
+            <label>Company Name  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:</label>
+            <select name="company" required>
+                <option value="Avaya" > Avaya </option>
+                <option value="ZS Associates" > ZS Associates </option>
+                <option value="TCS" > TCS </option>
+                <option value="Infosys" > Infosys </option>
+            </select><br><br>
+
+            <label>CGPA &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:</label>
+            <input type="tel" placeholder="do not write %" name="cgpa"></input><br><br>
+
+            <label>No of Dead Backlogs&nbsp:</label>
+            <input type="number" name="dead" min="0" max="10"> </input><br><br>
+
+            <label>No of Live Backlogs &nbsp:</label>
+            <input type="number" name="live" min="0" max="4"> </input><br><br>
+
+            <label>Date of Birth &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:</label>
+            <input type="date" name="dob"></input><br><br>
+
+          <label>GR No. &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:</label>
+            <input type="text" name="gr"><br><br>
+
+            <label>Email ID &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:</label>
+            <input type="email" name="mail" placeholder="Official ID only"><br><br>
+
+
+            <label>Password &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:</label>
+            <input type="password" name="pwd"><br><br>
+
+            <input type="reset"></input> &nbsp
+            <button>Submit</button> &nbsp
+        </form>
+    </div>
+
+
+    <div>
+      <img src="vit-logo.png">
+      <h2>This is contact section</h2>
+      <p> Training and Placement Cell VIIT
+
+The placement cell of VIIT strives to get its students placed in the best of companies, that can help you explore your potential.<br>
+
+tpo@viit.ac.in<br>
+
+Vishwakarma Institute of Information Technology, kondhawa budruk , Pune</p>
+    </div>
+
+  </div>
+</div>
+
+	<script>
+		function _class(name1){
+            return document.getElementsByClassName(name1);
+            }
+
+        let tabPanes = _class("tab-header")[0].getElementsByTagName("div");
+
+        for(let i=0;i<tabPanes.length;i++){
+        tabPanes[i].addEventListener("click",function(){
+            _class("tab-header")[0].getElementsByClassName("active")[0].classList.remove("active");
+            tabPanes[i].classList.add("active");
+
+            _class("tab-indicator")[0].style.top = `calc(80px + ${i*50}px)`;
+
+            _class("tab-content")[0].getElementsByClassName("active")[0].classList.remove("active");
+            _class("tab-content")[0].getElementsByTagName("div")[i].classList.add("active");
+
+            });
+            }
+	</script>
+
+</body>
+</html>
